@@ -1,0 +1,30 @@
+<!--<layer-list xmlns:android="http://schemas.android.com/apk/res/android">-->
+<!--    &lt;!&ndash; Stroke layer &ndash;&gt;-->
+<!--    <item>-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="@android:color/transparent" />-->
+<!--            <stroke-->
+<!--                android:width="2dp"-->
+<!--                android:color="@color/mainColor" />-->
+<!--            <corners android:radius="20dp" />-->
+<!--        </shape>-->
+<!--    </item>-->
+
+<!--    &lt;!&ndash; Background layer &ndash;&gt;-->
+<!--    <item android:left="2dp" android:top="2dp" android:right="2dp" android:bottom="2dp">-->
+<!--        <shape android:shape="rectangle">-->
+<!--            <solid android:color="@color/secondcolor" />-->
+<!--            <corners android:radius="20dp" />-->
+<!--        </shape>-->
+<!--    </item>-->
+<!--</layer-list>-->
+
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/secondcolor" /> <!-- Background color -->
+    <corners android:radius="20dp" /> <!-- Matches CardView corner radius -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/mainColor" /> <!-- Optional stroke -->
+</shape>
+
