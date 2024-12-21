@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/titleTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Title"
+            android:textStyle="bold"
+            android:textSize="16sp" />
+
+        <!-- Completed Status -->
+        <TextView
+            android:id="@+id/completedTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="✔ Completed"
+            android:textSize="14sp"
+            android:textColor="@color/green"
+            android:layout_marginTop="4dp"/>
+
+        <!-- Awaiting Parts Status -->
+        <TextView
+            android:id="@+id/awaitingPartsTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="⚙ Awaiting Parts"
+            android:textSize="14sp"
+            android:textColor="@color/orange"
+            android:layout_marginTop="4dp"/>
+
+        <!-- In Progress Status -->
+        <TextView
+            android:id="@+id/inProgressTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="🔄 In Progress"
+            android:textSize="14sp"
+            android:textColor="@color/blue"
+            android:layout_marginTop="4dp"/>
+
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

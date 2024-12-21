@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TrackMyCarActivity"
+    android:background="@color/mainColor">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Track My Car"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="35dp"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="7dp"
+        tools:ignore="MissingConstraints" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/top_rounded_corners"
+        android:layout_marginTop="70dp"
+        android:padding="15dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_feedback_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Repair Progress Tracker"
+                android:textSize="24sp"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Progress Status"
+                android:textSize="18sp"
+                android:layout_marginBottom="8dp" />
+
+<!--            <GridView-->
+<!--                android:layout_marginTop="30dp"-->
+<!--                android:id="@+id/idGVrepairStatus"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="400dp"-->
+<!--                android:horizontalSpacing="10dp"-->
+<!--                android:verticalSpacing="10dp"-->
+<!--                android:numColumns="2"-->
+<!--                android:stretchMode="columnWidth"/>-->
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/idRVRepairStatus"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scrollbars="vertical" />
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

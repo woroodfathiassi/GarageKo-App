@@ -14,8 +14,6 @@ public class Invoice {
             new Invoice(R.drawable.tools, "2024-12-05", 25.30, "Car Wash")
     };
 
-
-
     public Invoice(int imageId, String date, double price, String detail) {
         this.imageId = imageId;
         this.date = date;

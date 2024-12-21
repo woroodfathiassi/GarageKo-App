@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginHorizontal="20dp"
     android:layout_marginVertical="10dp"
-    android:background="@drawable/card_background_invoice">
+    android:background="@drawable/card_background_service">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_service"
@@ -25,38 +25,17 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"
-                android:src="@drawable/tools" />
-
-            <LinearLayout
-                android:layout_width="180dp"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/TVdate"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="20-10-2024"
-                    android:textStyle="bold"
-                    android:textSize="20sp" />
-
-                <TextView
-                    android:id="@+id/TVdetail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Oil Change, Brake Pad Replacement and Tire Rotation" />
-            </LinearLayout>
+                android:src="@drawable/tools"
+                android:layout_marginRight="30dp"/>
 
             <TextView
-                android:id="@+id/TVprice"
+                android:id="@+id/TVservice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:text="$ 150"
+                android:text="oil change"
                 android:textStyle="bold"
-                android:textSize="18sp" />
+                android:textSize="22sp" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 </FrameLayout>

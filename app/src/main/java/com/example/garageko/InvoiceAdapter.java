@@ -156,7 +156,7 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.ViewHold
 
         public ViewHolder(View itemView) {
             super(itemView);
-            cardView = itemView.findViewById(R.id.card_view); // Ensure this ID exists in `card_invoice_list_item.xml`
+            cardView = itemView.findViewById(R.id.card_view_service); // Ensure this ID exists in `card_invoice_list_item.xml`
             imageView = itemView.findViewById(R.id.tool);
             dateTextView = itemView.findViewById(R.id.TVdate);
             priceTextView = itemView.findViewById(R.id.TVprice);

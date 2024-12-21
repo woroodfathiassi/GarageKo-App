@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class InvoiceActivity extends AppCompatActivity {
 
+    private RecyclerView recycler;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,7 @@ public class InvoiceActivity extends AppCompatActivity {
         });
 
 
-        RecyclerView recycler = findViewById(R.id.invoice_recycler);
+        recycler = findViewById(R.id.invoice_recycler);
 
         int[] imageIds = new int[Invoice.invoices.length];
         String[] dates = new String[Invoice.invoices.length];

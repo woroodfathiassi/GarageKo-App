@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CFeedbackActivity"
+    android:background="@color/mainColor">
+
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="Give Feedback"
+      android:textAlignment="center"
+      android:textColor="@color/white"
+      android:textSize="35dp"
+      tools:layout_editor_absoluteX="0dp"
+      tools:layout_editor_absoluteY="7dp"
+      tools:ignore="MissingConstraints" />
+
+  <ScrollView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:background="@drawable/top_rounded_corners"
+      android:layout_marginTop="70dp"
+      android:padding="15dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+      <!-- Title -->
+      <TextView
+          android:id="@+id/tv_feedback_title"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Rate Your Experience"
+          android:textSize="24sp"
+          android:layout_marginTop="20dp"
+          android:textColor="@color/black"
+          android:textStyle="bold"
+          android:paddingBottom="16dp" />
+
+      <!-- Rating Bar -->
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="How did we do?"
+          android:textSize="18sp"
+          android:layout_marginBottom="8dp" />
+
+      <RatingBar
+          android:id="@+id/ratingBar"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:numStars="5"
+          android:layout_marginTop="20dp"
+          android:layout_gravity="center" />
+
+      <View
+          android:layout_width="match_parent"
+          android:layout_height="2dp"
+          android:layout_marginVertical="40dp"
+          android:background="@color/zinc_200"/>
+
+      <!-- Feedback Text -->
+      <TextView
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Write Your Feedback"
+          android:textSize="24sp"
+          android:layout_marginTop="10dp"
+          android:textColor="@color/black"
+          android:textStyle="bold"
+          android:paddingBottom="16dp" />
+
+      <EditText
+          android:id="@+id/et_feedback"
+          android:layout_width="match_parent"
+          android:layout_height="200dp"
+          android:hint="Write your feedback here"
+          android:background="@drawable/rounded_edittext"
+          android:gravity="top|start"
+          android:padding="8dp"
+          android:inputType="textMultiLine" />
+
+      <!-- Submit Button -->
+      <Button
+          android:id="@+id/btn_submit_feedback"
+          android:layout_width="match_parent"
+          android:layout_height="wrap_content"
+          android:text="Submit Feedback"
+          android:backgroundTint="@color/mainColor"
+          android:textColor="@color/white"
+          android:layout_marginTop="50dp"
+          android:textStyle="bold" />
+    </LinearLayout>
+  </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
