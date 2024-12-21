@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    android:padding="16dp"
+    tools:context=".AddCar">
+
+    <!-- Toolbar -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF6600"
+        android:minHeight="80dp"
+        android:padding="16dp">
+
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentStart="true"
+            android:contentDescription="Back"
+            android:src="@drawable/arrow" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Add New Car"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/menu_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:contentDescription="Menu"
+            android:src="@drawable/menu" />
+    </RelativeLayout>
+
+    <!-- Profile Image -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <ImageView
+            android:id="@+id/car_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/car"
+            android:contentDescription="Car Image" />
+
+        <ImageView
+            android:id="@+id/add_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="end"
+            android:layout_marginTop="-24dp"
+            android:layout_marginEnd="110dp"
+            android:contentDescription="Add Button"
+            android:src="@drawable/plus" />
+    </LinearLayout>
+
+    <!-- Input Fields -->
+    <EditText
+        android:id="@+id/brand_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custome_shadow"
+        android:drawablePadding="8dp"
+        android:hint="Brand"
+        android:inputType="text"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/model_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/custome_shadow"
+        android:drawablePadding="8dp"
+        android:hint="Model"
+        android:inputType="text"
+        android:padding="12dp" />
+
+    <EditText
+        android:id="@+id/car_number_field"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Car Number"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/custome_shadow"
+        android:inputType="text"
+        android:padding="12dp"
+        android:drawablePadding="8dp" />
+
+    <!-- Add Button -->
+    <Button
+        android:id="@+id/add_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#FF6600"
+        android:padding="12dp"
+        android:text="ADD"
+        android:textColor="@android:color/white"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+</LinearLayout>
