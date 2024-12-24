@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <!-- Home Option -->
+    <item
+        android:id="@+id/menu_home"
+        android:icon="@drawable/home"
+        android:title="Home"
+        app:showAsAction="never" />
+
+    <!-- Manage Cars Option -->
+    <item
+        android:id="@+id/menu_manage_cars"
+        android:icon="@drawable/managecars"
+        android:title="Manage Cars"
+        app:showAsAction="never" />
+
+    <!-- Manage Requests Option -->
+    <item
+        android:id="@+id/menu_manage_requests"
+        android:icon="@drawable/managerequests"
+        android:title="Manage Requests"
+        app:showAsAction="never" />
+
+    <!-- Billings and Payment Option -->
+    <item
+        android:id="@+id/menu_billings_payment"
+        android:icon="@drawable/billing"
+        android:title="Billings Payment"
+        app:showAsAction="never" />
+
+    <!-- Rates Option -->
+    <item
+        android:id="@+id/menu_rates"
+        android:icon="@drawable/rates"
+        android:title="Rates"
+        app:showAsAction="never" />
+</menu>
