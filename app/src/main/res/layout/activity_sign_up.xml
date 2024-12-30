@@ -6,11 +6,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
+    android:layoutDirection="ltr"
     tools:context=".SignUp">
 
-    <!-- Header -->
-
-    <!-- Create Account Label -->
     <RelativeLayout
         android:id="@+id/header_container"
         android:layout_width="match_parent"
@@ -18,13 +16,16 @@
         android:background="#FF6600"
         android:padding="16dp">
 
-        <ImageView
-            android:id="@+id/back_button"
+        <ImageButton
+            android:id="@+id/backBtn"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentStart="true"
+            android:background="#FF6600"
             android:contentDescription="Back"
-            android:src="@drawable/arrow" />
+            android:scaleType="fitCenter"
+            android:src="@drawable/arrow"
+            android:tint="#FFFFFF" />
 
         <TextView
             android:id="@+id/header_title"
@@ -70,7 +71,7 @@
             android:src="@drawable/user" />
 
         <EditText
-            android:id="@+id/full_name"
+            android:id="@+id/nameEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -102,13 +103,14 @@
             android:src="@drawable/email" />
 
         <EditText
-            android:id="@+id/emailTxt"
+            android:id="@+id/emailEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_toEndOf="@id/email_icon"
             android:background="@android:color/transparent"
             android:hint="Email"
+            android:inputType="text|textEmailAddress"
             android:textColor="@color/black"
             android:textSize="16sp" />
     </RelativeLayout>
@@ -133,7 +135,7 @@
             android:src="@drawable/location" />
 
         <EditText
-            android:id="@+id/address"
+            android:id="@+id/addressEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -165,7 +167,7 @@
             android:src="@drawable/call" />
 
         <EditText
-            android:id="@+id/phone_number"
+            android:id="@+id/phoneEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -179,7 +181,7 @@
 
     <!-- Password Field -->
     <RelativeLayout
-        android:id="@+id/password_field"
+        android:id="@+id/passwordLoginEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/phone_number_field"
@@ -197,7 +199,7 @@
             android:src="@drawable/padlock" />
 
         <EditText
-            android:id="@+id/password"
+            android:id="@+id/passwordEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
@@ -211,10 +213,10 @@
 
     <!-- Sign Up Button -->
     <Button
-        android:id="@+id/sign_up_button"
+        android:id="@+id/signUpButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password_field"
+        android:layout_below="@id/passwordLoginEdt"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#FF6600"
