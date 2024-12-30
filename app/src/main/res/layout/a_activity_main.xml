@@ -32,7 +32,7 @@
         app:srcCompat="@drawable/orange_logo" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/emailLoginEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/logo"
@@ -45,10 +45,10 @@
 
     <!-- Password Field -->
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/passwordLoginEdt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/email"
+        android:layout_below="@id/emailLoginEdt"
         android:layout_marginHorizontal="24dp"
         android:layout_marginTop="30dp"
         android:hint="password"
@@ -61,17 +61,17 @@
         android:id="@+id/password_toggle"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_alignEnd="@id/password"
+        android:layout_alignEnd="@id/passwordLoginEdt"
         android:layout_marginEnd="24dp"
-        android:layout_alignBottom="@id/password" />
+        android:layout_alignBottom="@id/passwordLoginEdt" />
 
     <!-- Forgot Password -->
     <TextView
         android:id="@+id/forgot_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/password"
-        android:layout_alignEnd="@id/password"
+        android:layout_below="@id/passwordLoginEdt"
+        android:layout_alignEnd="@id/passwordLoginEdt"
         android:layout_marginTop="8dp"
         android:text="Forgot your password"
         android:textColor="#FF6600"
@@ -99,8 +99,27 @@
         android:layout_below="@id/loginBtn"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Don’t have an account? Sign Up"
+        android:text="Don’t have an account?"
         android:textColor="#FF6600"
         android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/signupBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loginBtn"
+        android:layout_marginLeft="9dp"
+        android:layout_marginTop="21dp"
+        android:layout_toRightOf="@id/sign_up_prompt"
+        android:backgroundTint="#FFFFFF"
+        android:minWidth="0dp"
+        android:minHeight="0dp"
+        android:paddingLeft="0dp"
+        android:paddingTop="0dp"
+        android:paddingRight="0dp"
+        android:paddingBottom="0dp"
+        android:text="Sign Up"
+        android:textColor="#FF6600"
+        android:textColorLink="#FFFFFF" />
 
 </RelativeLayout>
