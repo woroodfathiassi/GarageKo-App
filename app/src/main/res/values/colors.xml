@@ -13,5 +13,30 @@
     <color name="green_light">#E0F8E0</color>
     <color name="orange_light">#FFF3E0</color>
     <color name="blue_light">#E0F0FF</color>
+    <color name="colorPrimary">#FF5722</color> <!-- Orange -->
+    <color name="colorPrimaryDark">#E64A19</color> <!-- Darker Orange -->
+    <color name="colorAccent">#FFC107</color> <!-- Yellow Accent -->
 
+    <!-- Background Colors -->
+    <color name="backgroundColor">#FFFFFF</color> <!-- White -->
+    <color name="cardBackgroundColor">#F5F5F5</color> <!-- Light Gray -->
+
+    <!-- Text Colors -->
+    <color name="textPrimary">#212121</color> <!-- Dark Text -->
+    <color name="textSecondary">#757575</color> <!-- Light Gray Text -->
+    <color name="textHint">#BDBDBD</color> <!-- Hint Text Gray -->
+
+    <!-- Button Colors -->
+    <color name="buttonTextColor">#FFFFFF</color> <!-- White -->
+    <color name="buttonBackground">#FF5722</color> <!-- Orange -->
+
+    <!-- Divider and Border Colors -->
+    <color name="dividerColor">#BDBDBD</color> <!-- Light Gray -->
+
+    <!-- Icon Colors -->
+    <color name="iconColor">#757575</color> <!-- Light Gray for Icons -->
+
+    <!-- Bottom Navigation Bar Colors -->
+    <color name="bottomNavSelected">#FF5722</color> <!-- Selected Tab Orange -->
+    <color name="bottomNavUnselected">#757575</color> <!-- Unselected Tab Gray -->
 </resources>

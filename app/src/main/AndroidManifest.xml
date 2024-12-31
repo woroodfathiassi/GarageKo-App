@@ -24,6 +24,16 @@
             android:exported="false" />
         <activity
             android:name=".InvoiceActivity"
+            android:name=".AddCar"
+            android:exported="false" />
+        <activity
+            android:name=".AMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".CFeedbackActivity"
+            android:exported="false" />
+        <activity
+            android:name=".SignUp"
             android:exported="false" />
         <activity
             android:name=".WMainActivity"
@@ -39,6 +49,31 @@
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
+            android:name=".WMainActivity"
+            android:exported="false">
+        </activity>
+
+        <!-- Manage Cars screen -->
+        <activity
+            android:name=".GarageOwnerCarsManageScreen"
+            android:exported="false" />
+
+        <!-- Manage Requests screen -->
+        <activity
+            android:name=".GarageOwnerRequestsManageScreen"
+            android:exported="false" />
+
+        <!-- Billing & Payment screen -->
+        <activity
+            android:name=".GarageOwnerBillingManageScreen"
+            android:exported="false" />
+
+        <!-- Rates screen -->
+        <activity
+            android:name=".CustomerRateActivity"
+            android:exported="false" />
+        <activity
+            android:name=".GarageOwnerHomeScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
