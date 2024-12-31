@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/backgroundColor"> <!-- Set background color to orange -->
+    android:background="@color/mainColor"> <!-- Set background color to orange -->
 
     <!-- Toolbar with menu button -->
     <LinearLayout
@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="@color/colorPrimary"> <!-- Toolbar color -->
+        android:background="@color/mainColor"> <!-- Toolbar color -->
 
         <ImageButton
             android:id="@+id/menuButton"
@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:text="Manage Customers Requests"
         android:textSize="16sp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/white"
         android:textColor="@android:color/white"
         android:layout_marginBottom="20dp"
         />
@@ -58,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/backgroundColor">
+        android:background="@color/mainColor">
 
         <LinearLayout
             android:layout_width="0dp"

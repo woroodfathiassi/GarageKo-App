@@ -1,71 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".TrackMyCarActivity"
-    android:background="@color/mainColor">
+<androidx.drawerlayout.widget.DrawerLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/drawer_layout"
+android:layout_width="match_parent"
+android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Track My Car"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="35dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="7dp"
-        tools:ignore="MissingConstraints" />
-
-    <ScrollView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/top_rounded_corners"
-        android:layout_marginTop="70dp"
-        android:padding="15dp">
+        tools:context=".TrackMyCarActivity"
+        android:background="@color/mainColor">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Track My Car"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="35dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="13dp" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="28dp"
+            android:layout_height="25dp"
+            android:src="@drawable/menu_icon"
+            app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.731"
+            app:layout_constraintStart_toEndOf="@+id/textView"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.571"
+            tools:ignore="MissingConstraints" />
+
+        <ScrollView
+            android:id="@+id/scrollView2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:background="@drawable/top_rounded_corners"
+            android:layout_marginTop="70dp"
+            android:padding="15dp">
 
-            <TextView
-                android:id="@+id/tv_feedback_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Repair Progress Tracker"
-                android:textSize="24sp"
-                android:layout_marginTop="20dp"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:paddingBottom="16dp" />
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Progress Status"
-                android:textSize="18sp"
-                android:layout_marginBottom="8dp" />
-
-<!--            <GridView-->
-<!--                android:layout_marginTop="30dp"-->
-<!--                android:id="@+id/idGVrepairStatus"-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="400dp"-->
-<!--                android:horizontalSpacing="10dp"-->
-<!--                android:verticalSpacing="10dp"-->
-<!--                android:numColumns="2"-->
-<!--                android:stretchMode="columnWidth"/>-->
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/idRVRepairStatus"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:scrollbars="vertical" />
+                android:orientation="vertical">
 
-        </LinearLayout>
-    </ScrollView>
+                <TextView
+                    android:id="@+id/tv_feedback_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Repair Progress Tracker"
+                    android:textSize="24sp"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold"
+                    android:paddingBottom="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Progress Status"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/idRVRepairStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scrollbars="vertical" />
+
+            </LinearLayout>
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!-- Include Navigation Menu -->
+<include
+    layout="@layout/navigation_menu" />
+</androidx.drawerlayout.widget.DrawerLayout>

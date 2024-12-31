@@ -49,33 +49,11 @@ public class GarageOwnerRequestsManageScreen extends AppCompatActivity {
             Log.e("GarageOwnerHomeScreen", "Error initializing RecyclerView", e);
         }
         ImageButton menuButton = findViewById(R.id.menuButton);
-        menuButton.setOnClickListener(v -> {
-            PopupMenu popupMenu = new PopupMenu(GarageOwnerRequestsManageScreen.this, v);
-            popupMenu.getMenuInflater().inflate(R.menu.ic_menu, popupMenu.getMenu());
-//            popupMenu.setOnMenuItemClickListener(item -> {
-//                switch (item.getItemId()) {
-//                    case R.id.menu_home:
-//                        Toast.makeText(this, "Home clicked", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    case R.id.menu_manage_cars:
-//                        Toast.makeText(this, "Manage Cars clicked", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    case R.id.menu_manage_requests:
-//                        Toast.makeText(this, "Manage Requests clicked", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    case R.id.menu_billings_payment:
-//                        Toast.makeText(this, "Billings Payment clicked", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    case R.id.menu_rates:
-//                        Toast.makeText(this, "Rates clicked", Toast.LENGTH_SHORT).show();
-//                        return true;
-//                    default:
-//                        return false;
-//                }
-//
-//            });
-            popupMenu.show();
-        });
+//        menuButton.setOnClickListener(v -> {
+//            PopupMenu popupMenu = new PopupMenu(GarageOwnerRequestsManageScreen.this, v);
+//            popupMenu.getMenuInflater().inflate(R.menu.ic_menu, popupMenu.getMenu());
+//            popupMenu.show();
+//        });
 
     }
 

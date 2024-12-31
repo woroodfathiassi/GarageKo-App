@@ -53,13 +53,13 @@ public class GarageOwnerCarsManageScreen extends AppCompatActivity {
         }
 
         ImageButton menuButton = findViewById(R.id.menuButton);
-        if (menuButton != null) {
-            menuButton.setOnClickListener(v -> {
-                PopupMenu popupMenu = new PopupMenu(GarageOwnerCarsManageScreen.this, v);
-                popupMenu.getMenuInflater().inflate(R.menu.ic_menu, popupMenu.getMenu());
-                popupMenu.show();
-            });
-        }
+//        if (menuButton != null) {
+//            menuButton.setOnClickListener(v -> {
+//                PopupMenu popupMenu = new PopupMenu(GarageOwnerCarsManageScreen.this, v);
+//                popupMenu.getMenuInflater().inflate(R.menu.ic_menu, popupMenu.getMenu());
+//                popupMenu.show();
+//            });
+//        }
     }
 
     private void setupBottomBar() {

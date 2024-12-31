@@ -118,7 +118,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="APPLY"
-            android:backgroundTint="@color/colorPrimary"
+            android:backgroundTint="@color/mainColor"
             android:textColor="@android:color/white"
             android:layout_marginTop="16dp" />
 
@@ -129,7 +129,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:background="@color/backgroundColor">
+            android:background="@color/white">
 
             <LinearLayout
                 android:layout_width="0dp"

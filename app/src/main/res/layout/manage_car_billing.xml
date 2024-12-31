@@ -45,7 +45,7 @@
         android:layout_height="wrap_content"
         android:text="Add Billing"
         android:layout_marginTop="32dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/mainColor"
         android:textColor="@android:color/white"/>
 
     <!-- Billing Report Button -->
@@ -55,7 +55,7 @@
         android:layout_height="wrap_content"
         android:text="Billing Report"
         android:layout_marginTop="16dp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/mainColor"
         android:textColor="@android:color/white"/>
     <LinearLayout
         android:layout_marginTop="270dp"
@@ -64,7 +64,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:layout_alignParentBottom="true"
-        android:background="@color/backgroundColor">
+        android:background="@color/mainColor">
 
 
     <LinearLayout

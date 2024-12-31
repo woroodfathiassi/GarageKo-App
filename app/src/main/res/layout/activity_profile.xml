@@ -1,10 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/mainColor">
 
     <TextView
@@ -14,11 +14,23 @@
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="35dp"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="7dp"
         tools:ignore="MissingConstraints" />
 
+    <ImageButton
+        android:id="@+id/imageButtonBack"
+        android:layout_width="50dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="12dp"
+        android:background="@android:color/transparent"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
+
+
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/top_rounded_corners"
@@ -31,114 +43,172 @@
             android:orientation="vertical">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/userImage"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_gravity="center"
                 android:background="@drawable/profile_image_background"
-                android:src="@drawable/user_image"
-                android:layout_gravity="center"/>
+                android:src="@drawable/user_image" />
 
+            <Button
+                android:id="@+id/btn_choose_image"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="-25dp"
+                android:layout_marginRight="-65dp"
+                android:background="@drawable/camera" />
 
+            <!-- Name Field -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Name"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/editTextName"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text_background"
-                android:text="Worood Assi"
-                android:paddingLeft="20dp"/>
+                android:paddingLeft="20dp" />
 
+            <TextView
+                android:id="@+id/errorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#FF0202"
+                android:visibility="gone"
+                android:textSize="15sp" />
+
+            <!-- Email Field -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Emial"
-                android:layout_marginTop="20dp"
+                android:text="Email"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:layout_marginTop="20dp"
+                android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/editTextEmail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:inputType="textEmailAddress"
                 android:background="@drawable/edit_text_background"
-                android:text="worood@gmail.com"
-                android:paddingLeft="20dp"/>
+                android:paddingLeft="20dp" />
 
+            <TextView
+                android:id="@+id/errorEmail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#FF0202"
+                android:visibility="gone"
+                android:textSize="15sp" />
+
+            <!-- Phone Number Field -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phone Number"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/editTextPhoneNumber"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text_background"
-                android:text="0591234567"
-                android:paddingLeft="20dp"/>
+                android:paddingLeft="20dp" />
 
+            <TextView
+                android:id="@+id/errorPhoneNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#FF0202"
+                android:visibility="gone"
+                android:textSize="15sp" />
+
+            <!-- Address Field -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Address"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/editTextAddress"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text_background"
-                android:text="Ramallah"
-                android:paddingLeft="20dp"/>
+                android:paddingLeft="20dp" />
 
+            <TextView
+                android:id="@+id/errorAddress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#FF0202"
+                android:visibility="gone"
+                android:textSize="15sp" />
+
+            <!-- Password Field -->
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Password"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold" />
 
             <EditText
+                android:id="@+id/editTextPassword"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="5dp"
                 android:background="@drawable/edit_text_background"
-                android:text="123456"
                 android:inputType="textPassword"
-                android:paddingLeft="20dp"/>
+                android:paddingLeft="20dp" />
+
+            <TextView
+                android:id="@+id/errorPassword"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="3dp"
+                android:textColor="#FF0202"
+                android:visibility="gone"
+                android:textSize="15sp" />
 
             <Button
+                android:id="@+id/btnSave"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="50dp"
                 android:text="Save Update"
                 android:textSize="20dp"
-                android:backgroundTint="@color/mainColor"/>
+                android:backgroundTint="@color/mainColor" />
 
             <Button
+                android:id="@+id/btnLogout"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="5dp"
-                android:layout_marginBottom="20dp"
+                android:layout_marginTop="10dp"
                 android:text="Logout"
                 android:textSize="20dp"
-                android:backgroundTint="@color/mainColor"/>
+                android:backgroundTint="@color/mainColor" />
 
         </LinearLayout>
-
     </ScrollView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

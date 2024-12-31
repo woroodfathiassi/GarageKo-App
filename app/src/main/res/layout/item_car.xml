@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:text="Add To Maintain"
         android:textSize="14sp"
-        android:backgroundTint="@color/colorPrimary"
+        android:backgroundTint="@color/mainColor"
         android:textColor="@android:color/white" />
 
 </LinearLayout>
