@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.garageko;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;

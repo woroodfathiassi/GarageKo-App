@@ -25,7 +25,7 @@
             android:contentDescription="Back"
             android:scaleType="fitCenter"
             android:src="@drawable/arrow"
-            android:tint="#FFFFFF" />
+            app:tint="#FFFFFF" />
 
         <TextView
             android:id="@+id/header_title"

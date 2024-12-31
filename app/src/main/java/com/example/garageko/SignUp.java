@@ -1,4 +1,4 @@
-package com.example.finalproject;
+package com.example.garageko;
 
 import android.os.Bundle;
 import android.util.Patterns;
