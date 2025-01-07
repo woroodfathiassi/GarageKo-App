@@ -49,6 +49,7 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
             intent.putExtra("ownerName", car.getOwnerName());
             intent.putExtra("carModel", car.getCarModel());
             intent.putExtra("carImage", car.getCarImage());
+            intent.putExtra("request_id", car.getRequest_id());
 
             context.startActivity(intent);
         });

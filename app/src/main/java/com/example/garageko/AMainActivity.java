@@ -54,7 +54,7 @@ public class AMainActivity extends AppCompatActivity {
             return;
         }
 
-        String url = "http://192.168.88.15/myPHP/Login";
+        String url = "http://192.168.1.251/myPHP/Login";
 
         String str = url+"?email="+email+"&password="+password;
 
@@ -72,7 +72,8 @@ public class AMainActivity extends AppCompatActivity {
                                         startActivity(intent);
                                     }
                                     else{
-                                        Toast.makeText(AMainActivity.this, "Added before", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(AMainActivity.this, MakeRequestActivity.class);
+                                        startActivity(intent);
                                     }
                                 }else{
                                     // open owners activity

@@ -10,7 +10,7 @@
     tools:context=".SignUp">
 
     <RelativeLayout
-        android:id="@+id/header_container"
+        android:id="@+id/headerContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FF6600"
@@ -28,7 +28,7 @@
             app:tint="#FFFFFF" />
 
         <TextView
-            android:id="@+id/header_title"
+            android:id="@+id/headerTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
@@ -47,7 +47,7 @@
         android:id="@+id/logo"
         android:layout_width="151dp"
         android:layout_height="112dp"
-        android:layout_below="@id/header_container"
+        android:layout_below="@id/headerContainer"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         app:srcCompat="@drawable/orange_logo" />

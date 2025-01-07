@@ -2,6 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:background="@color/white"
     android:padding="16dp">
 
     <LinearLayout
@@ -22,74 +24,98 @@
             android:id="@+id/ownerNameTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Owner Name"
+            android:textColor="#000000"
             android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal" />
+            android:textStyle="bold" />
 
         <!-- Car Model -->
         <TextView
             android:id="@+id/carModelTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
             android:text="Car Model"
-            android:textSize="16sp"
-            android:layout_gravity="center_horizontal" />
+            android:textColor="#000000"
+            android:textSize="16sp" />
 
         <!-- Labels and EditTexts -->
-        <TextView android:text="BRAKES"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="BRAKES"
+            android:textColor="#000000" />
+
         <EditText
             android:id="@+id/brakesCostEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter cost for brakes"
             android:inputType="numberDecimal"
-            android:hint="Enter cost for brakes" />
+            android:textColor="#000000" />
 
-        <TextView android:text="WHEELS"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="WHEELS"
+            android:textColor="#000000" />
+
         <EditText
             android:id="@+id/wheelsCostEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter cost for wheels"
             android:inputType="numberDecimal"
-            android:hint="Enter cost for wheels" />
+            android:textColor="#000000" />
 
-        <TextView android:text="BODY"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="BODY"
+            android:textColor="#000000" />
+
         <EditText
             android:id="@+id/bodyCostEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter cost for body"
             android:inputType="numberDecimal"
-            android:hint="Enter cost for body" />
+            android:textColor="#000000" />
 
-        <TextView android:text="MOTOR"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="MOTOR"
+            android:textColor="#000000" />
+
         <EditText
             android:id="@+id/motorCostEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter cost for motor"
             android:inputType="numberDecimal"
-            android:hint="Enter cost for motor" />
+            android:textColor="#000000" />
 
-        <TextView android:text="OIL"
+        <TextView
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="OIL"
+            android:textColor="#000000" />
+
         <EditText
             android:id="@+id/oilCostEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Enter cost for oil"
             android:inputType="numberDecimal"
-            android:hint="Enter cost for oil" />
+            android:textColor="#000000" />
+
         <TextView
-            android:text="DATE OF BILLING"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="DATE OF BILLING"
+            android:textColor="#000000" />
 
         <EditText
             android:id="@+id/billingDateEditText"
@@ -98,18 +124,20 @@
             android:hint="Select billing date"
             android:focusable="false"
             android:clickable="true" />
+
         <TextView
-            android:text="Notes"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="Notes"
+            android:textColor="#000000" />
 
         <EditText
-            android:id="@+id/notesEditText"
+            android:id="@+id/notesEdt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusable="true"
             android:hint="Add Notes"
-            android:focusable="false"
-            android:clickable="true" />
+            android:textColor="#000000" />
 
 
         <!-- Apply Button -->

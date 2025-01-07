@@ -79,7 +79,7 @@ public class SignUp extends AppCompatActivity {
             return;
         }
 
-        String url = "http://192.168.88.15/myPHP/SignUp";
+        String url = "http://192.168.1.251/myPHP/SignUp";
 
         String str = url+"?name="+name+"&email="+email+"&password="+password+"&phone="+phone+"&address="+address;
 
