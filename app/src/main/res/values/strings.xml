@@ -3,4 +3,17 @@
     <string name="brand">Brand</string>
     <string name="open_drawer">Open Drawer</string>
     <string name="close_drawer">Close Drawer</string>
+
+
+    <!--    API URL-->
+    <string name="GET_USER_BY_ID">http://10.0.2.2/api/getUserById.php</string>
+    <string name="GET_PAYMENT_DETAILS">http://10.0.2.2/api/getPaymentDetails.php</string>
+    <string name="GET_INVOICES_LIST">http://10.0.2.2/api/getInvoicesList.php</string>
+    <string name="GET_CFEEDBACK">http://10.0.2.2/api/getCfeedback.php</string>
+    <string name="SET_CFEEDBACK">http://10.0.2.2/api/setCfeedback.php</string>
+    <string name="INSERT_NEW_RATING">http://10.0.2.2/api/insertNewRating.php</string>
+    <string name="UPDATE_USER_INFO">http://10.0.2.2/api/updateUserInfo.php</string>
+    <string name="GET_MAINTENANCE_DETAILS">http://10.0.2.2/api/getMaintenanceDetailss.php</string>
+
+    <string name="abd_url">http://10.0.2.2/api/</string>
 </resources>

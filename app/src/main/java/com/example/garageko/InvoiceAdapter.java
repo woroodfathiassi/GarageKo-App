@@ -22,14 +22,16 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.ViewHold
     private double[] prices;
     private String[] details;
     private OnItemClickListener listener;
+    private int[] requestIds;
 
     // Constructor
-    public InvoiceAdapter(Context context, int[] imageIds, String[] dates, double[] prices, String[] details) {
+    public InvoiceAdapter(Context context, int[] imageIds, String[] dates, double[] prices, String[] details,int [] requestIds) {
         this.context = context;
         this.imageIds = imageIds;
         this.dates = dates;
         this.prices = prices;
         this.details = details;
+        this.requestIds = requestIds;
     }
 
     @Override
@@ -50,10 +52,9 @@ public class InvoiceAdapter extends RecyclerView.Adapter<InvoiceAdapter.ViewHold
         holder.cardView.setOnClickListener(v -> {
             // Start InvoiceDetailsActivity with the clicked item's data
             Intent intent = new Intent(context, InvoiceDetailsActivity.class);
-            intent.putExtra("imageId", imageIds[position]);
-            intent.putExtra("date", dates[position]);
-            intent.putExtra("price", prices[position]);
-            intent.putExtra("detail", details[position]);
+            intent.putExtra("requestId", requestIds[position]);
+            intent.putExtra("dates", dates[position]);
+            intent.putExtra("prices", prices[position]+"");
 
             // Ensure proper context is used to start the activity
             context.startActivity(intent);

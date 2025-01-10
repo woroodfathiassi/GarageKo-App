@@ -1,6 +1,7 @@
 package com.example.garageko;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.util.Patterns;
 import android.widget.Button;
 import android.widget.EditText;
@@ -10,14 +11,16 @@ import android.widget.Toast;
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
-import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class SignUp extends AppCompatActivity {
@@ -79,34 +82,46 @@ public class SignUp extends AppCompatActivity {
             return;
         }
 
-        String url = "http://192.168.88.15/myPHP/SignUp";
+        String url = getString(R.string.abd_url)+"signUp.php";
+        RequestQueue queue = Volley.newRequestQueue(this);
 
-        String str = url+"?name="+name+"&email="+email+"&password="+password+"&phone="+phone+"&address="+address;
-
-        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, str, null,
-                new Response.Listener<JSONObject>() {
-                    @Override
-                    public void onResponse(JSONObject response) {
+        StringRequest request = new StringRequest(Request.Method.POST, url,
+                response -> {
                         try {
-                            if (response.getBoolean("success")) {
-                                Toast.makeText(SignUp.this, "Registered Successfully", Toast.LENGTH_SHORT).show();
+                            JSONObject jsonResponse = new JSONObject(response);
+                            if (jsonResponse.getBoolean("success")) {
+                                Toast.makeText(SignUp.this, jsonResponse.getString("message"), Toast.LENGTH_SHORT).show();
+                                finish();
                             } else {
                                 Toast.makeText(SignUp.this, "Email is registered before", Toast.LENGTH_SHORT).show();
                             }
                         } catch (Exception e) {
+                            Log.d("the error", String.valueOf(e));
                             e.printStackTrace();
                             Toast.makeText(SignUp.this, "Error parsing data", Toast.LENGTH_SHORT).show();
                         }
-                    }
                 },
-                new Response.ErrorListener() {
+                error -> {
+                    Toast.makeText(SignUp.this, "Volley error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                }){
                     @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(SignUp.this, "Volley error: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                    protected Map<String, String> getParams() throws AuthFailureError{
+                        Map<String, String> params = new HashMap<>();
+                        params.put("name", name);
+                        params.put("email", email);
+                        params.put("password", password);
+                        params.put("Mobile_Phone", phone);
+                        params.put("address", address);
+                        return params;
                     }
-                });
 
-        RequestQueue queue = Volley.newRequestQueue(this);
+                    @Override
+                    public Map<String, String> getHeaders() throws AuthFailureError {
+                        Map<String, String> headers = new HashMap<>();
+                        headers.put("Content-Type", "application/x-www-form-urlencoded");
+                        return headers;
+                    }
+                };
         queue.add(request);
     }
 }

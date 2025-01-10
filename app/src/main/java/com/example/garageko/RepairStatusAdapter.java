@@ -44,7 +44,7 @@ public class RepairStatusAdapter extends RecyclerView.Adapter<RepairStatusAdapte
             holder.completedTextView.setVisibility(View.GONE);
         }
 
-        if (repairStatus.isAwaitingParts()) {
+        if (repairStatus.isOk()) {
             holder.awaitingPartsTextView.setVisibility(View.VISIBLE);
             holder.cardView.setCardBackgroundColor(context.getResources().getColor(R.color.orange_light));
         } else {

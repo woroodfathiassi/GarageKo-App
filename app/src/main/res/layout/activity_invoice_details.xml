@@ -77,7 +77,7 @@
                 android:layout_height="70dp"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:src="@drawable/tools" />
+                android:src="@drawable/tools"/>
 
             <TextView
                 android:id="@+id/Idate"
@@ -92,6 +92,13 @@
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="4dp"
+                android:layout_above="@+id/linearLayout"
+                android:layout_marginBottom="0dp"
+                android:background="@color/zinc_200" />
+
             <LinearLayout
                 android:id="@+id/linearLayout"
                 android:layout_width="wrap_content"
@@ -102,7 +109,8 @@
                 android:layout_marginTop="30dp"
                 android:background="@drawable/rounded_edittext"
                 android:backgroundTint="@color/mainColor"
-                android:padding="50dp">
+                android:paddingHorizontal="50dp"
+                android:paddingVertical="30dp">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -166,5 +174,5 @@
 
 <!-- Include Navigation Menu -->
 <include
-    layout="@layout/navigation_menu" />
+    layout="@layout/side_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>

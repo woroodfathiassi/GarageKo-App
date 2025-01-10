@@ -1,30 +1,37 @@
 package com.example.garageko;
 
 import android.os.Bundle;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
 
 public class CarBillingReport extends AppCompatActivity {
 
     // Declare variables for all views
-    private TextView headerTextView, ownerNameTextView, carModelTextView, maintenanceHeaderTextView;
-    private TextView dateOfMaintainTextView, dateOfMaintainPriceTextView;
-    private TextView handWorkingTextView, handWorkingPriceTextView;
-    private TextView brakesTextView, brakesPriceTextView;
-    private TextView wheelsTextView, wheelsPriceTextView;
-    private TextView bodyTextView, bodyPriceTextView;
-    private TextView motorTextView, motorPriceTextView;
-    private TextView oilTextView, oilPriceTextView;
-    private TextView otherTextView, otherPriceTextView;
-    private TextView totalPriceLabel, totalPriceTextView;
+    private TextView ownerNameTextView, carModelTextView;
+    private TextView dateOfMaintainTextView;
+    private TextView brakesPriceTextView;
+    private TextView wheelsPriceTextView;
+    private TextView bodyPriceTextView;
+    private TextView motorPriceTextView;
+    private TextView oilPriceTextView;
+    private TextView totalPriceTextView;
+    private int request_id;
 
     private EditText moreInfoTextArea;
     private ImageView carImageView;
-    private Button addBillingButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,65 +40,64 @@ public class CarBillingReport extends AppCompatActivity {
 
         // Initialize views using findViewById
 
-        ownerNameTextView = findViewById(R.id.ownerNameTextView);
-        carModelTextView = findViewById(R.id.carModelTextView);
-        maintenanceHeaderTextView = findViewById(R.id.maintenanceHeaderTextView);
+        ownerNameTextView = findViewById(R.id.ownerNameTxt);
+        carModelTextView = findViewById(R.id.carModelTxt);
 
-        dateOfMaintainTextView = findViewById(R.id.dateOfMaintainTextView);
-        dateOfMaintainPriceTextView = findViewById(R.id.dateOfMaintainPriceTextView);
-
-        handWorkingTextView = findViewById(R.id.handWorkingTextView);
-        handWorkingPriceTextView = findViewById(R.id.handWorkingPriceTextView);
-
-        brakesTextView = findViewById(R.id.brakesTextView);
-        brakesPriceTextView = findViewById(R.id.brakesPriceTextView);
-
-        wheelsTextView = findViewById(R.id.wheelsTextView);
-        wheelsPriceTextView = findViewById(R.id.wheelsPriceTextView);
-
-        bodyTextView = findViewById(R.id.bodyTextView);
-        bodyPriceTextView = findViewById(R.id.bodyPriceTextView);
-
-        motorTextView = findViewById(R.id.motorTextView);
-        motorPriceTextView = findViewById(R.id.motorPriceTextView);
-
-        oilTextView = findViewById(R.id.oilTextView);
-        oilPriceTextView = findViewById(R.id.oilPriceTextView);
-
-        otherTextView = findViewById(R.id.otherTextView);
-        otherPriceTextView = findViewById(R.id.otherPriceTextView);
-
-        totalPriceLabel = findViewById(R.id.totalPriceLabel);
-        totalPriceTextView = findViewById(R.id.totalPriceTextView);
+        dateOfMaintainTextView = findViewById(R.id.dateOfMaintainPriceTxt);
+        brakesPriceTextView = findViewById(R.id.brakesPriceTxt);
+        wheelsPriceTextView = findViewById(R.id.wheelsPriceTxt);
+        bodyPriceTextView = findViewById(R.id.bodyPriceTxt);
+        motorPriceTextView = findViewById(R.id.motorPriceTxt);
+        oilPriceTextView = findViewById(R.id.oilPriceTxt);
+        totalPriceTextView = findViewById(R.id.totalPriceTxt);
 
         moreInfoTextArea = findViewById(R.id.moreInfoTextArea);
         carImageView = findViewById(R.id.carImageView);
-        addBillingButton = findViewById(R.id.addBillingButton);
 
         // Set or modify text dynamically
-        ownerNameTextView.setText("John Doe");
-        carModelTextView.setText("Toyota Corolla 2022");
-        dateOfMaintainPriceTextView.setText("$150");
-        brakesPriceTextView.setText("$120");
+        String ownerName = getIntent().getStringExtra("ownerName");
+        String carModel = getIntent().getStringExtra("carModel");
+        int carImage = getIntent().getIntExtra("carImage", R.drawable.hyundai_getz);
+        request_id = getIntent().getIntExtra("request_id", 0);
 
-        // Update total price dynamically
-        String totalPrice = "$270";
-        totalPriceTextView.setText(totalPrice);
+        ownerNameTextView.setText(ownerName);
+        carModelTextView.setText(carModel);
+        carImageView.setImageResource(carImage);
 
-        // Add more information to EditText
-        moreInfoTextArea.setText("Car was serviced on 12/06/2024.");
+        fillBillingReport();
+    }
 
-        // Change header text color programmatically
-//        headerTextView.setTextColor(getResources().getColor(android.R.color.holo_red_dark));
+    private void fillBillingReport(){
+        String url = getString(R.string.abd_url)+"BillingReport.php";
 
-        // Set image dynamically (replace 'new_image' with your drawable)
-        carImageView.setImageResource(R.drawable.hyundai_getz);
+        String str = url+"?id="+request_id;
 
-        // Button Click Listener Example
-        addBillingButton.setOnClickListener(view -> {
-            // Example: Update total price dynamically when the button is clicked
-            totalPriceTextView.setText("$300");
-            moreInfoTextArea.setText("Billing updated successfully!");
-        });
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, str, null,
+                new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        try {
+                            dateOfMaintainTextView.setText(response.getString("date"));
+                            brakesPriceTextView.setText(response.getString("brakes"));
+                            wheelsPriceTextView.setText(response.getString("wheels"));
+                            bodyPriceTextView.setText(response.getString("body"));
+                            motorPriceTextView.setText(response.getString("motor"));
+                            oilPriceTextView.setText(response.getString("oil"));
+                            moreInfoTextArea.setText(response.getString("notes"));
+                            totalPriceTextView.setText(response.getString("total"));
+                        } catch (Exception e) {
+                            Toast.makeText(CarBillingReport.this, "Error parsing data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(CarBillingReport.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        queue.add(request);
     }
 }

@@ -15,9 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
 public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
+
     private List<Car> carList;
     private String buttonText;
+    private OnAddToMaintainClickListener listener;
 
+    // Constructor
+    public CarAdapter(List<Car> carList, String buttonText, OnAddToMaintainClickListener listener) {
+        this.carList = carList;
+        this.buttonText = buttonText;
+        this.listener = listener;
+    }
     public CarAdapter(List<Car> carList, String buttonText) {
         this.carList = carList;
         this.buttonText = buttonText;
@@ -40,19 +48,38 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
         holder.carImage.setImageResource(car.getCarImage());
         holder.addToMaintainButton.setText(buttonText);
 
-        // Add navigation to ManageCarBillingActivity
+        // Handle button click
         holder.addToMaintainButton.setOnClickListener(v -> {
-            Context context = v.getContext();
-            Intent intent = new Intent(context, ManageCarBillingActivity.class);
-
-            // Pass car details to the next activity
-            intent.putExtra("ownerName", car.getOwnerName());
-            intent.putExtra("carModel", car.getCarModel());
-            intent.putExtra("carImage", car.getCarImage());
-
-            context.startActivity(intent);
+            if (listener != null) {
+                listener.onAddToMaintainClick(car);
+            }
         });
     }
+
+//    @Override
+//    public void onBindViewHolder(@NonNull CarViewHolder holder, int position) {
+//        Car car = carList.get(position);
+//
+//        // Set data to views
+//        holder.ownerName.setText(car.getOwnerName());
+//        holder.carName.setText(car.getCarModel());
+//        holder.carImage.setImageResource(car.getCarImage());
+//        holder.addToMaintainButton.setText(buttonText);
+//
+//        // Add navigation to ManageCarBillingActivity
+//        holder.addToMaintainButton.setOnClickListener(v -> {
+//            Context context = v.getContext();
+//            Intent intent = new Intent(context, ManageCarBillingActivity.class);
+//
+//            // Pass car details to the next activity
+//            intent.putExtra("ownerName", car.getOwnerName());
+//            intent.putExtra("carModel", car.getCarModel());
+//            intent.putExtra("carImage", car.getCarImage());
+//            intent.putExtra("request_id", car.request_id);
+//
+//            context.startActivity(intent);
+//        });
+//    }
 
     @Override
     public int getItemCount() {
@@ -76,5 +103,10 @@ public class CarAdapter extends RecyclerView.Adapter<CarAdapter.CarViewHolder> {
     public void updateData(List<Car> newCarList) {
         carList = newCarList;
         notifyDataSetChanged();
+    }
+
+    // Listener Interface
+    public interface OnAddToMaintainClickListener {
+        void onAddToMaintainClick(Car car);
     }
 }

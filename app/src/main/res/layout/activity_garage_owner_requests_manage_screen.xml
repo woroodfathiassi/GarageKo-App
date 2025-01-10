@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/mainColor"> <!-- Set background color to orange -->
+    android:background="@color/backgroundColor"> <!-- Set background color to orange -->
 
     <!-- Toolbar with menu button -->
     <LinearLayout
@@ -11,15 +11,7 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:padding="8dp"
-        android:background="@color/white"> <!-- Toolbar color -->
-
-        <ImageButton
-            android:id="@+id/menuButton"
-            android:layout_width="48dp"
-            android:layout_height="48dp"
-            android:background="?attr/selectableItemBackground"
-            android:contentDescription="Menu Button"
-            android:src="@drawable/menu" />
+        android:background="@color/colorPrimary"> <!-- Toolbar color -->
 
         <TextView
             android:id="@+id/titleText"
@@ -45,9 +37,9 @@
         android:id="@+id/manageCustomersButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Manage Customers Requests"
+        android:text="Manage Cars Delivered To The Garage"
         android:textSize="16sp"
-        android:backgroundTint="@color/mainColor"
+        android:backgroundTint="@color/colorPrimary"
         android:textColor="@android:color/white"
         android:layout_marginBottom="20dp"
         />
@@ -58,7 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/mainColor">
+        android:background="@color/backgroundColor">
 
         <LinearLayout
             android:layout_width="0dp"
@@ -114,7 +106,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Manage Cars"
+                android:text="Manage Requests"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:gravity="center" />
@@ -150,11 +142,11 @@
                 android:id="@+id/ratesIcon"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:src="@drawable/rates" />
+                android:src="@drawable/menu_black" />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Rates"
+                android:text="Profile"
                 android:textColor="#000000"
                 android:textSize="12sp"
                 android:gravity="center" />

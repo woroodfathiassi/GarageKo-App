@@ -2,27 +2,39 @@ package com.example.garageko;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ManageCarStatusActivity extends AppCompatActivity {
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
 
-    private ImageView carImageView;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+public class ManageCarStatusActivity extends AppCompatActivity {
+    private ImageView backIcon, carImageView;
     private TextView ownerNameTextView, carModelTextView;
     private Spinner statusSpinner;
     private Button applyButton;
-
+    private Car car;
+GarageOwnerRequestsManageScreen Gow = new GarageOwnerRequestsManageScreen();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.manage_car_request);
 
         // Initialize views
+        backIcon = findViewById(R.id.backIcon);
         carImageView = findViewById(R.id.carImageView);
         ownerNameTextView = findViewById(R.id.ownerNameTextView);
         carModelTextView = findViewById(R.id.carModelTextView);
@@ -35,26 +47,114 @@ public class ManageCarStatusActivity extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         statusSpinner.setAdapter(adapter);
 
-        // Get data from Intent
-        String ownerName = getIntent().getStringExtra("ownerName");
-        String carModel = getIntent().getStringExtra("carModel");
-        int carImage = getIntent().getIntExtra("carImage", R.drawable.hyundai_getz);
+        // Restore state if available
+        if (savedInstanceState != null) {
+            car = (Car) savedInstanceState.getSerializable("carData");
+            int selectedPosition = savedInstanceState.getInt("selectedStatus", 0);
+            statusSpinner.setSelection(selectedPosition);
+        } else {
+            // Get data from Intent
+            car = (Car) getIntent().getSerializableExtra("carData");
+        }
 
-        // Populate data
-        ownerNameTextView.setText(ownerName != null ? ownerName : "Amer");
-        carModelTextView.setText(carModel != null ? carModel : "Unknown Model");
-        carImageView.setImageResource(carImage);
+        if (car != null) {
+            ownerNameTextView.setText(car.getOwnerName());
+            carModelTextView.setText(car.getCarModel());
+            carImageView.setImageResource(car.getCarImage());
+            Log.d("ManageCarStatus", "Owner: " + car.getOwnerName());
+            Log.d("ManageCarStatus", "Model: " + car.getCarModel());
+        } else {
+            Log.e("ManageCarStatus", "Car object is null!");
+        }
+
+        backIcon.setOnClickListener(v -> {
+            Intent intent = new Intent(ManageCarStatusActivity.this, GarageOwnerRequestsManageScreen.class);
+            startActivity(intent);
+            finish();
+        });
 
         // Handle Apply button click
         applyButton.setOnClickListener(v -> {
-            // Get selected status
             String selectedStatus = statusSpinner.getSelectedItem().toString();
+            int carId = car.getCarId(); // Assuming Car object has an ID
 
-            // Create an Intent and send the selected status
-            Intent intent = new Intent();
-            intent.putExtra("selectedStatus", selectedStatus);
-            setResult(RESULT_OK, intent);
-            finish(); // Close the current activity
+            String statusForDatabase = "";
+            switch (selectedStatus) {
+                case "Employee Sent To The Customer":
+                    statusForDatabase = "employee_sent_to_customer";
+                    break;
+                case "Delivered":
+                    statusForDatabase = "approved";
+                    break;
+                default:
+                    statusForDatabase = "pending";
+                    break;
+            }
+
+            sendStatusUpdateToServer(carId, statusForDatabase);
         });
+    }
+
+    // Save state during configuration changes or activity destruction
+    @Override
+    protected void onSaveInstanceState(@NonNull Bundle outState) {
+        super.onSaveInstanceState(outState);
+
+        // Save car object and selected spinner position
+        outState.putSerializable("carData", car);
+        outState.putInt("selectedStatus", statusSpinner.getSelectedItemPosition());
+    }
+
+    // Restore state after activity recreation
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+
+        car = (Car) savedInstanceState.getSerializable("carData");
+        int selectedPosition = savedInstanceState.getInt("selectedStatus", 0);
+
+        if (car != null) {
+            ownerNameTextView.setText(car.getOwnerName());
+            carModelTextView.setText(car.getCarModel());
+            carImageView.setImageResource(car.getCarImage());
+        }
+
+        statusSpinner.setSelection(selectedPosition);
+    }
+
+    private void sendStatusUpdateToServer(int carId, String status) {
+        String url = "http://10.0.2.2/api/changestatusofrequest.php"; // Replace with your server URL
+
+        RequestQueue queue = Volley.newRequestQueue(this);
+        JSONObject requestBody = new JSONObject();
+
+        try {
+            requestBody.put("car_id", carId);
+            requestBody.put("status", status);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            return;
+        }
+
+        JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, requestBody,
+                response -> {
+                    try {
+                        boolean success = response.getBoolean("success");
+                        if (success) {
+                            Toast.makeText(this, "Status updated successfully!", Toast.LENGTH_SHORT).show();
+                                Gow.fetchDataFromServer();
+                        } else {
+                            String error = response.getString("error");
+                            Toast.makeText(this, "Failed to update status: " + error, Toast.LENGTH_SHORT).show();
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Toast.makeText(this, "Error parsing response", Toast.LENGTH_SHORT).show();
+                    }
+                },
+                error -> Toast.makeText(this, "Error: " + error.getMessage(), Toast.LENGTH_SHORT).show()
+        );
+
+        queue.add(request);
     }
 }

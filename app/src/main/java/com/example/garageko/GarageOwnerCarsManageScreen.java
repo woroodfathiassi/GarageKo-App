@@ -3,19 +3,30 @@ package com.example.garageko;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.ImageButton;
-import android.widget.PopupMenu;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class GarageOwnerCarsManageScreen extends AppCompatActivity {
-
+public class GarageOwnerCarsManageScreen extends AppCompatActivity implements CarAdapter.OnAddToMaintainClickListener {
     private RecyclerView recyclerView;
     private CarAdapter carAdapter;
     private List<Car> carList;
@@ -25,41 +36,61 @@ public class GarageOwnerCarsManageScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_garage_owner_cars_manage_screen);
 
-        try {
-            // Initialize RecyclerView
-            recyclerView = findViewById(R.id.recyclerView);
-            if (recyclerView == null) {
-                throw new NullPointerException("RecyclerView not found in layout");
-            }
-            recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Initialize RecyclerView
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        carList = new ArrayList<>();
+        carAdapter = new CarAdapter(carList, "Manage", this);
+        recyclerView.setAdapter(carAdapter);
 
-            // Populate data
-            carList = new ArrayList<>();
-            carList.add(new Car("Ahmad Fadi", "Hyundai Getz", R.drawable.hyundai_getz));
-            carList.add(new Car("Khalid Fadi", "BMW X5", R.drawable.bmw_x5));
-            carList.add(new Car("Shadi Radi", "Kia Sportage", R.drawable.kia_sportage));
-            carList.add(new Car("Murad Muslih", "MG 4", R.drawable.mg_4));
-            carList.add(new Car("Yasmeen Masri", "Hyundai ix 35", R.drawable.hyundai_ix35));
+        // Fetch data from the server
+        fetchDataFromServer();
 
-            // Set adapter
-            carAdapter = new CarAdapter(carList, "Manage");
-            recyclerView.setAdapter(carAdapter);
+        // Set up bottom bar navigation
+        setupBottomBar();
+    }
 
-            // Setup bottom bar
-            setupBottomBar();
+    private void fetchDataFromServer() {
+        String url = "http://10.0.2.2/api/getCarsForMaintainance.php"; // Use 10.0.2.2 for localhost in the emulator
+        RequestQueue queue = Volley.newRequestQueue(this);
 
-        } catch (Exception e) {
-            Log.e("GarageOwnerCarsManageScreen", "Error initializing RecyclerView", e);
-        }
+        JsonArrayRequest jsonArrayRequest = new JsonArrayRequest(
+                Request.Method.GET,
+                url,
+                null,
+                new Response.Listener<JSONArray>() {
+                    @Override
+                    public void onResponse(JSONArray response) {
+                        try {
+                            carList.clear();
+                            for (int i = 0; i < response.length(); i++) {
+                                JSONObject carObject = response.getJSONObject(i);
+                                String name = carObject.getString("name");
+                                String brand = carObject.getString("brand");
+                                String imageUrl = carObject.getString("image"); // Ensure your image data is handled correctly
+                                int customerId = carObject.getInt("customer_id");
+                                int carId = carObject.getInt("car_id"); // Ensure `car_id` is included in the response
 
-        ImageButton menuButton = findViewById(R.id.menuButton);
-//        if (menuButton != null) {
-//            menuButton.setOnClickListener(v -> {
-//                PopupMenu popupMenu = new PopupMenu(GarageOwnerCarsManageScreen.this, v);
-//                popupMenu.getMenuInflater().inflate(R.menu.ic_menu, popupMenu.getMenu());
-//                popupMenu.show();
-//            });
-//        }
+                                // Assuming a Car constructor: Car(String name, String brand, int imageId)
+                                carList.add(new Car(carId,name, brand, R.drawable.hyundai_getz)); // Use placeholders or download images
+                            }
+                            carAdapter.notifyDataSetChanged();
+                        } catch (JSONException e) {
+                            Log.e("GarageOwnerRequests", "JSON parsing error: " + e.getMessage());
+                            Toast.makeText(GarageOwnerCarsManageScreen.this, "Error parsing data", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.e("GarageOwnerRequests", "Volley error: " + error.getMessage());
+                        Toast.makeText(GarageOwnerCarsManageScreen.this, "Error fetching data", Toast.LENGTH_SHORT).show();
+                    }
+                }
+        );
+
+        queue.add(jsonArrayRequest);
     }
 
     private void setupBottomBar() {
@@ -85,11 +116,42 @@ public class GarageOwnerCarsManageScreen extends AppCompatActivity {
             });
 
             findViewById(R.id.ratesIcon).setOnClickListener(v -> {
-                Intent intent = new Intent(this, CustomerRateActivity.class);
+                showCustomMenu(); // Show your menu as a dialog
+            });
+            findViewById(R.id.manageCustomersButton).setOnClickListener(v -> {
+                Intent intent = new Intent(this, GarageOwnerBillingManageScreen.class);
                 startActivity(intent);
             });
         } catch (Exception e) {
             Log.e("GarageOwnerCarsManageScreen", "Error setting up bottom bar", e);
         }
+    }
+    private void showCustomMenu() {
+        // Inflate the menu layout
+        View menuView = getLayoutInflater().inflate(R.layout.navigation_menu_g, null);
+
+        // Create a dialog to show the menu
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setView(menuView);
+
+        // Handle menu item clicks
+        menuView.findViewById(R.id.menu_item_2).setOnClickListener(v -> {
+            Toast.makeText(this, "Logout clicked", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(this, SignUp.class);
+            startActivity(intent);
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+
+        // Optional: Customize dialog window size
+        dialog.getWindow().setLayout(800, ViewGroup.LayoutParams.WRAP_CONTENT);
+    }
+
+    @Override
+    public void onAddToMaintainClick(Car car) {
+        Intent intent = new Intent(this, ManageCarMaintainActivity.class);
+        intent.putExtra("carData", car);
+        startActivity(intent);
     }
 }

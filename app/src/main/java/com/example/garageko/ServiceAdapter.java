@@ -15,11 +15,13 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
 
     private int[] imageIds;
     private String[] services;
+    private String[] servicesPrice;
 
     // Constructor to initialize data
-    public ServiceAdapter(int[] imageIds, String[] services) {
+    public ServiceAdapter(int[] imageIds, String[] services, String[] servicesPrice) {
         this.imageIds = imageIds;
         this.services = services;
+        this.servicesPrice = servicesPrice;
     }
 
     @Override
@@ -58,12 +60,14 @@ public class ServiceAdapter extends RecyclerView.Adapter<ServiceAdapter.ViewHold
         private CardView cardView;
         private ImageView imageView;
         private TextView serviceTextView;
+        private TextView servicePriceTextView;
 
         public ViewHolder(View itemView) {
             super(itemView);
             cardView = itemView.findViewById(R.id.card_view_service);
             imageView = itemView.findViewById(R.id.tool);
             serviceTextView = itemView.findViewById(R.id.TVservice);
+            servicePriceTextView = itemView.findViewById(R.id.TVservicePrice);
         }
     }
 }

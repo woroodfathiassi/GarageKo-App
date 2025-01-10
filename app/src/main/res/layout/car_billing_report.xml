@@ -7,7 +7,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp">
+        android:padding="16dp"
+        android:background="@color/white"
+        android:layoutDirection="ltr">
         
         <!-- Car Image -->
         <ImageView
@@ -21,7 +23,8 @@
 
         <!-- Car Owner and Model -->
         <TextView
-            android:id="@+id/ownerNameTextView"
+            android:id="@+id/ownerNameTxt"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Ahmad Fadi"
@@ -31,11 +34,12 @@
             android:layout_marginTop="8dp"/>
 
         <TextView
-            android:id="@+id/carModelTextView"
+            android:id="@+id/carModelTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hyundai Getz"
             android:textSize="16sp"
+            android:textColor="@color/black"
             android:layout_gravity="center"/>
 
         <!-- Maintenance Items -->
@@ -43,6 +47,7 @@
             android:id="@+id/maintenanceHeaderTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="@color/black"
             android:text="Type of Car Maintenance"
             android:textSize="16sp"
             android:textStyle="bold"
@@ -65,36 +70,20 @@
                     android:id="@+id/dateOfMaintainTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
+                    android:textColor="@color/black"
                     android:layout_weight="1"
                     android:text="Date Of Maintain" />
 
                 <TextView
-                    android:id="@+id/dateOfMaintainPriceTextView"
+                    android:id="@+id/dateOfMaintainPriceTxt"
                     android:layout_width="wrap_content"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
                     android:text="$88" />
             </LinearLayout>
 
             <!-- Hand Working -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/handWorkingTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Hand Working" />
-
-                <TextView
-                    android:id="@+id/handWorkingPriceTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$88" />
-            </LinearLayout>
 
             <!-- Brakes -->
             <LinearLayout
@@ -107,13 +96,16 @@
                     android:id="@+id/brakesTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="Brakes" />
 
                 <TextView
-                    android:id="@+id/brakesPriceTextView"
+                    android:id="@+id/brakesPriceTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="$88" />
             </LinearLayout>
 
@@ -121,20 +113,23 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
+                android:layout_marginVertical="8dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/wheelsTextView"
+                    android:textColor="@color/black"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="5dp"
                     android:layout_weight="1"
                     android:text="Wheels" />
 
                 <TextView
-                    android:id="@+id/wheelsPriceTextView"
+                    android:id="@+id/wheelsPriceTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="$88" />
             </LinearLayout>
 
@@ -148,14 +143,17 @@
                 <TextView
                     android:id="@+id/bodyTextView"
                     android:layout_width="0dp"
+                    android:textColor="@color/black"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
                     android:layout_weight="1"
                     android:text="Body" />
 
                 <TextView
-                    android:id="@+id/bodyPriceTextView"
+                    android:id="@+id/bodyPriceTxt"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
                     android:text="$88" />
             </LinearLayout>
 
@@ -170,11 +168,14 @@
                     android:id="@+id/motorTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    android:layout_marginVertical="8dp"
                     android:layout_weight="1"
                     android:text="Motor" />
 
                 <TextView
-                    android:id="@+id/motorPriceTextView"
+                    android:id="@+id/motorPriceTxt"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$88" />
@@ -191,42 +192,27 @@
                     android:id="@+id/oilTextView"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="8dp"
                     android:layout_weight="1"
+                    android:textColor="@color/black"
                     android:text="Oil" />
 
                 <TextView
-                    android:id="@+id/oilPriceTextView"
+                    android:id="@+id/oilPriceTxt"
+                    android:textColor="@color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="$88" />
             </LinearLayout>
 
             <!-- Other -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginTop="8dp">
-
-                <TextView
-                    android:id="@+id/otherTextView"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="Other" />
-
-                <TextView
-                    android:id="@+id/otherPriceTextView"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="$88" />
-            </LinearLayout>
 
         </LinearLayout>
 
         <!-- Total Price -->
         <TextView
             android:id="@+id/totalPriceLabel"
+            android:textColor="@color/black"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Total Price"
@@ -235,10 +221,11 @@
             android:layout_marginTop="16dp" />
 
         <TextView
-            android:id="@+id/totalPriceTextView"
+            android:id="@+id/totalPriceTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="$88"
+            android:textColor="@color/black"
             android:textSize="16sp" />
 
         <!-- More Info Text Area -->
@@ -246,19 +233,12 @@
             android:id="@+id/moreInfoTextArea"
             android:layout_width="match_parent"
             android:layout_height="70dp"
+            android:textColor="@color/black"
             android:hint="more Info"
             android:focusable="false"
             android:layout_marginTop="16dp" />
 
         <!-- Add Billing Button -->
-        <Button
-            android:id="@+id/addBillingButton"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ADD BILLING"
-            android:textColor="@android:color/white"
-            android:backgroundTint="#FF6600"
-            android:layout_marginTop="15dp" />
         <!-- Bottom Navigation -->
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -284,7 +264,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Home"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:gravity="center" />
             </LinearLayout>
@@ -299,12 +279,13 @@
                     android:id="@+id/manageCarsIcon"
                     android:layout_width="24dp"
                     android:layout_height="24dp"
+                    android:textColor="@color/black"
                     android:src="@drawable/managecars" />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Manage Cars"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:gravity="center" />
             </LinearLayout>
@@ -324,7 +305,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Manage Cars"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:gravity="center" />
             </LinearLayout>
@@ -344,7 +325,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Billings Payment"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:gravity="center" />
             </LinearLayout>
@@ -364,7 +345,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rates"
-                    android:textColor="#000000"
+                    android:textColor="@color/black"
                     android:textSize="12sp"
                     android:gravity="center" />
             </LinearLayout>

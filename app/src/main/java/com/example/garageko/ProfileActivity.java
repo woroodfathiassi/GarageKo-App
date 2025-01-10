@@ -575,7 +575,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void saveUserInfo(String name, String email, String phone, String address, String password, String image) {
-        String url = "http://10.0.2.2/api/updateUserInfo.php";
+        String url = String.valueOf(R.string.UPDATE_USER_INFO);
 
         RequestQueue queue = Volley.newRequestQueue(this);
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
@@ -608,7 +608,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
 
     private void getUserById(int userId) {
-        String url = "http://10.0.2.2/api/getUserById.php";
+        String url = getString(R.string.GET_USER_BY_ID);
 
         RequestQueue queue = Volley.newRequestQueue(this);
 
