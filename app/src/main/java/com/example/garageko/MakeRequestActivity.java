@@ -131,7 +131,7 @@ public class MakeRequestActivity extends AppCompatActivity {
                     public void onResponse(JSONObject response) {
                         try {
                             if (response.getBoolean("success")) {
-                                model = response.getString("model");
+                                model = response.getString("name");
                                 brand = response.getString("brand");
                                 number = response.getString("number");
                                 brandTxt.setText("Car's Brand: "+brand);

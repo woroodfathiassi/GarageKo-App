@@ -40,18 +40,14 @@
         <activity
             android:name=".GarageOwnerBillingManageScreen"
             android:exported="true" />
-        <activity
-            android:name=".GarageOwnerHomeScreen"
-            android:exported="true" />
+
         <activity
             android:name=".InvoiceDetailsActivity"
             android:exported="false" />
         <activity
             android:name=".AddCar"
             android:exported="false" />
-        <activity
-            android:name=".InvoiceActivity"
-            android:exported="false" />
+
         <activity
             android:name=".CFeedbackActivity"
             android:exported="false" />
@@ -92,7 +88,13 @@
             android:name=".MakeRequestActivity"
             android:exported="false" />
         <activity
+            android:name=".GarageOwnerHomeScreen"
+            android:exported="true" />
+        <activity
             android:name=".AMainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".InvoiceActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
